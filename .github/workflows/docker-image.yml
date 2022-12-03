@@ -38,9 +38,9 @@ jobs:
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.HOST }}
-        USERNAME: ${{ secrets.USER }}
-        PORT: 22
-        KEY: ${{ secrets.SSH }}
+        username: ${{ secrets.USER }}
+        port: 22
+        key: ${{ secrets.SSH }}
         script: echo test
 #           export CR_PAT=${{ secrets.GIT_TOKEN }}
 #           echo $CR_PAT | docker login ghcr.io -u ItsMeSafak --password-stdin 
