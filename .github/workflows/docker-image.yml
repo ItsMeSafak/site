@@ -33,3 +33,14 @@ jobs:
         context: .
         push: true
         tags: ghcr.io/itsmesafak/site:latest
+        
+    - name: Executing remote command
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        USERNAME: ${{ secrets.USER }}
+        PORT: 22
+        KEY: ${{ secrets.SSH }}
+        script: |
+          docker pull ghcr.io/itsmesafak/site:latest
+          
