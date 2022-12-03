@@ -41,8 +41,6 @@ jobs:
         username: ${{ secrets.USER }}
         port: 22
         key: ${{ secrets.SSH }}
-        script: echo test
-#           export CR_PAT=${{ secrets.GIT_TOKEN }}
-#           echo $CR_PAT | docker login ghcr.io -u ItsMeSafak --password-stdin 
-#           docker pull ghcr.io/itsmesafak/site:latest
+        script: |
+           docker pull ghcr.io/itsmesafak/site:latest
           
