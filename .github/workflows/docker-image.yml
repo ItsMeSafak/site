@@ -34,8 +34,9 @@ jobs:
     - name: Build and publish a Docker image for ${{ github.repository }}
       uses: macbre/push-to-ghcr@master
       with:
-        image_name: ${{ github.repository }}  # it will be lowercased internally
+        image_name: ${{ github.repository }} 
         github_token: ${{ secrets.GIT_TOKEN }}
+        image_tag: latestest
 
     - name: Copy docker compose prod yaml to target
       uses: appleboy/scp-action@master
