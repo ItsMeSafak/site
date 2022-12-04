@@ -6,8 +6,9 @@ services:
     environment:
       - VIRTUAL_HOST=inan.dev
       - LETSENCRYPT_HOST=inan.dev
+      - VIRTUAL_PORT=6969
     ports:
-      - 80
+      - 6969:80
     container_name: site
 
 networks:
