@@ -36,7 +36,7 @@ jobs:
       with:
         image_name: ${{ github.repository }} 
         github_token: ${{ secrets.GIT_TOKEN }}
-        image_tag: latestest
+        image_tag: recent
 
     - name: Copy docker compose prod yaml to target
       uses: appleboy/scp-action@master
