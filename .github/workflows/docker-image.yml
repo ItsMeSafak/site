@@ -55,5 +55,6 @@ jobs:
            export CR_PAT=${{ secrets.GIT_TOKEN }}
            echo $CR_PAT | docker login ghcr.io -u ItsMeSafak --password-stdin
            cd ${{ secrets.HOST_PATH }}
+           docker-compose -f docker-compose.prod.yaml down
            docker-compose -f docker-compose.prod.yaml up -d
           
