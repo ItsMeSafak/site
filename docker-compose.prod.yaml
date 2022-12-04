@@ -1,0 +1,15 @@
+version: '3'
+services:
+  next-app:
+    image: ghcr.io/itsmesafak/site:latest
+    restart: unless-stopped
+    environment:
+      - VIRTUAL_HOST=inan.dev
+      - LETSENCRYPT_HOST=inan.dev
+    ports:
+      - 3000:80
+    container_name: site
+
+networks:
+  external:
+    name: nginx-proxy

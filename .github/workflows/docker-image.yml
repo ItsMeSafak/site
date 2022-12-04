@@ -33,6 +33,16 @@ jobs:
         context: .
         push: true
         tags: ghcr.io/itsmesafak/site:latest
+
+    - name: Copy docker compose to target
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          port: 22
+          key: ${{ secrets.SSH }}
+          source: "docker-compose.yaml,docker-compose.prod.yaml"
+          target: "${{ secrets.HOST_PATH }}"
         
     - name: Executing remote command
       uses: appleboy/ssh-action@master
@@ -44,5 +54,6 @@ jobs:
         script: |
            export CR_PAT=${{ secrets.GIT_TOKEN }}
            echo $CR_PAT | docker login ghcr.io -u ItsMeSafak --password-stdin
-           docker pull ghcr.io/itsmesafak/site:latest
+           cd ${{ secrets.HOST_PATH }}
+           docker-compose up -d
           
