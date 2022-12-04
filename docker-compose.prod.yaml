@@ -11,5 +11,6 @@ services:
     container_name: site
 
 networks:
-  external:
-    name: nginx-proxy
+  default:
+    external:
+      name: nginx-proxy
