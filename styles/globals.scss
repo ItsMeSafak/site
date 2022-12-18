@@ -1,0 +1,27 @@
+@import './colors.scss';
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Inter;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('./fonts/inter-regular.ttf');
+}
+
+@font-face {
+    font-family: 'Inter bold';
+    src: url('./fonts/inter-bold.ttf');
+}
