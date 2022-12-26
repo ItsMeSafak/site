@@ -1,5 +1,8 @@
 @import './colors.scss';
 @import '@fortawesome/fontawesome-svg-core/styles.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 html,
 body {
@@ -33,4 +36,4 @@ a {
         background-color: #1a1a1a;
         color: #fff;
     }
-  }
+}
