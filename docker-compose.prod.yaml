@@ -13,7 +13,6 @@ services:
             
 volumes:
     site_data:
-        external: true
 
 networks:
     default:
