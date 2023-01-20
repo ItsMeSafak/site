@@ -9,7 +9,7 @@ services:
             - VIRTUAL_PORT=3000
         container_name: site
         volumes: 
-            - site_data:/public/data
+            - site_data:/app/data
           
 volumes:
     site_data:
