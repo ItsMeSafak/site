@@ -9,8 +9,8 @@ services:
             - VIRTUAL_PORT=3000
         container_name: site
         volumes: 
-            - site_data:/data
-            
+            - site_data:/public/data
+          
 volumes:
     site_data:
 
