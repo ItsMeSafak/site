@@ -1,18 +1,23 @@
 import { ReactElement } from 'react';
+import { Page } from '../types/page';
 
-export const Footer = (): ReactElement =>
+interface FooterProps {
+    pageData: Page;
+}
+
+export const Footer = ({pageData}: FooterProps): ReactElement<FooterProps> =>
     <footer className='mt-5 border border-white p-6'>
         <div className='h-28 mx-auto my-0 w-6/12 flex'>
             <div className='flex-1'>
-                <span className='text-xl font-black'>Safak Inan</span>
-                <p>Always looking for a new adventure</p>
+                <span className='text-xl font-black'>{pageData.title}</span>
+                <p>{pageData.description}</p>
             </div>
             <div className='flex-1'>
-                <span className='text-xl font-black'>Social</span>
+                <span className='text-xl font-black'>{pageData.subtitle}</span>
                 <p>git/linkedin/email</p>
             </div>
         </div>
-        <p className='w-fit mx-auto my-0 text-xs'>© 2022-2023 - Made by Safak Inan</p>
+        <p className='w-fit mx-auto my-0 text-xs'>{pageData.copyright}</p>
     </footer>
 
 export default Footer;
