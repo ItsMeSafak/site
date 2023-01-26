@@ -21,7 +21,7 @@ export const Header = ({pages, firstName, lastName}: HeaderProps)
     }
 
     return (
-        <header className='flex item-center flex-wrap p-6 sticky top-5 border border-white mb-5'>
+        <header className='flex item-center flex-wrap p-6 sticky bg-black-200'>
             <div className='absolute flex item-center'>
                 <Image className='mr-3' src='/logo.png' alt='Logo' width={50} height={50} />
                 <span className='pl-3 border-l-2 border-black leading-normal text-3xl font-bold dark:border-white'>{firstName} <span className='text-blue'>{lastName}</span></span>

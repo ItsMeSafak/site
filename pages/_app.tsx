@@ -5,7 +5,7 @@ import Layout from '../components/layout';
 
 const App = ({ Component, pageProps }: AppProps): ReactElement => {
     return(
-        <div className='flex flex-col p-5 min-h-screen'>
+        <div className='flex flex-col min-h-screen'>
             <Layout>
                 <Component {...pageProps} />
             </Layout>

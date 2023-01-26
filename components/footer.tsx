@@ -17,21 +17,12 @@ export const Footer = ({pageData}: FooterProps): ReactElement<FooterProps> =>{
         setLinkedInLink(meData.social.linkedin);
     }, []);
     return (
-        <footer className='mt-5 border border-white p-6'>
-            <div className='h-28 mx-auto my-0 w-6/12 flex'>
-                <div className='flex-1'>
-                    <span className='text-xl font-black'>{pageData.title}</span>
-                    <p>{pageData.description}</p>
-                </div>
-                <div className='flex-1'>
-                    <span className='text-xl font-black'>{pageData.subtitle}</span>
-                    <div className='text-xl'>
-                        <a className='mr-3' href={githubLink} target={'_blank'} rel='noreferrer'><FontAwesomeIcon icon={faGithub}/></a>
-                        <a className='mr-3' href={linkedInLink} target={'_blank'} rel='noreferrer'><FontAwesomeIcon icon={faLinkedin} /></a>
-                    </div>
-                </div>
+        <footer className='flex flex-col items-center bg-black-200 p-6'>            
+            <p className='w-fit mb-3 text-xs'>{pageData.copyright}</p>
+            <div className='text-lg'>
+                <a className='mr-3' href={githubLink} target={'_blank'} rel='noreferrer'><FontAwesomeIcon icon={faGithub}/></a>
+                <a className='mr-3' href={linkedInLink} target={'_blank'} rel='noreferrer'><FontAwesomeIcon icon={faLinkedin} /></a>
             </div>
-            <p className='w-fit mx-auto my-0 text-xs'>{pageData.copyright}</p>
         </footer>
     );
 }

@@ -20,15 +20,17 @@ a {
     box-sizing: border-box;
 }
 
-a {
-    svg {
-        transition: all 0.2s ease-in-out;
-    }
-
-    &:hover {
+footer {
+    a {
         svg {
-            color: $primary-color;
-            transform: scale(1.2);
+            transition: all 0.2s ease-in-out;
+        }
+
+        &:hover {
+            svg {
+                color: $primary-color;
+                transform: scale(1.2);
+            }
         }
     }
 }

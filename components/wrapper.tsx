@@ -5,7 +5,7 @@ interface WrapperProps {
 }
 
 export const Wrapper = (props: WrapperProps): ReactElement => 
-    <div className='flex-auto relative border border-white p-6'>
+    <div className='flex-auto relative p-6'>
         {props.children}
     </div>
 
