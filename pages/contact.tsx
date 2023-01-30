@@ -18,9 +18,9 @@ export const ContactPage = (): ReactElement => {
         setMail(`mailto: ${me.email}`);
     }, [router.pathname]);
     return (
-        <div className='absolute flex items-center text-center flex-col left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 p-10 w-6/12'>
-            <h1 className='text-6xl py-2 px-10 font-bold bg-blue'>{title}</h1>
-            <p className='py-2 w-8/12 mb-5'>{description}</p>
+        <div className='flex flex-col items-center text-center p-10 lg:w-6/12'>
+            <h1 className='text-4xl lg:text-6xl py-2 lg:px-7 font-bold bg-blue'>{title}</h1>
+            <p className='py-2 lg:w-8/12 mb-5'>{description}</p>
             <a className='bg-blue shadow-md py-2 px-5 rounded-3xl' href={mail}>{button}</a>
         </div>
     );

@@ -24,9 +24,9 @@ export const ProjectsPage = (): ReactElement => {
     }
 
     return (
-        <div className='absolute flex items-center flex-col left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 p-10 w-6/12'>
-            <h1 className='text-6xl py-2 px-10 font-bold bg-blue mb-10'>{title}</h1>
-            <div className='grid grid-cols-3 gap-5 h-full'>
+        <div className='flex items-center flex-col lg:w-6/12'>
+            <h1 className='text-center text-4xl lg:text-6xl py-2 px-3 lg:px-10 font-bold bg-blue mb-10'>{title}</h1>
+            <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 h-full'>
                 {renderProjects()}
             </div>
         </div>

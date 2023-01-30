@@ -16,8 +16,8 @@ export const AboutPage = (): ReactElement => {
     }, [router.pathname]);
 
     return (
-        <div className='absolute flex flex-col left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue p-10 w-6/12'>
-            <h1 className='text-center text-6xl py-2 font-bold'>{title}</h1>
+        <div className='flex flex-col bg-blue p-10 lg:w-6/12'>
+            <h1 className='text-center text-4xl lg:text-6xl py-2 font-bold'>{title}</h1>
             <p className='py-2'>{intro}</p>
             <p className='py-2'>{description}</p>
         </div>

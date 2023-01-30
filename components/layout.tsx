@@ -41,9 +41,9 @@ export const Layout = ({children}: LayoutProps)
     return (
         <>
             <Header pages={navLinks} firstName={firstName} lastName={lastName}/>
-                <Wrapper>
+                <div className='flex flex-auto flex-col justify-center items-center p-6'>
                     {children}
-                </Wrapper>
+                </div>
             <Footer pageData={getFooterData()}/>
         </>
     );
