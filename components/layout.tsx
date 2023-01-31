@@ -1,5 +1,4 @@
 import { ReactElement, useEffect, useState } from 'react';
-import Wrapper from './wrapper';
 import Header from './header';
 import Footer from './footer';
 import meData from '../data/me.json';
