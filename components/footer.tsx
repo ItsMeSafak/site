@@ -21,20 +21,24 @@ export const Footer = (): ReactElement<FooterProps> =>{
     const pageData = useSWR('/api/page-data', fetcher);
 
     useEffect(() => {
-        setGithubLink(data.social.github);
-        setLinkedInLink(data.social.linkedin);
+        if (data) {
+            setGithubLink(data.social.github);
+            setLinkedInLink(data.social.linkedin);
+        }
         getFooterData();
     }, []);
 
     const getFooterData = () => {
-        console.log('ewewewewewew');
+        if (pageData.data) {
+            console.log('ewewewewewew');
         console.log(pageData);
         console.log(pageData.data.find((page: { title: string; }) => page.title === 'Safak Inan') as Page);
+        }
     }
 
     return (
         <footer className='flex flex-col items-center bg-black-200 p-6 text-white'>            
-            {/* <p className='w-fit mb-3 text-xs'>{pageData.data.copyright}</p> */}
+            <p className='w-fit mb-3 text-xs'>{pageData?.data?.copyright}</p>
             <div className='text-lg'>
                 <a className='mr-3' href={githubLink} target={'_blank'} rel='noreferrer'><FontAwesomeIcon icon={faGithub}/></a>
                 <a className='mr-3' href={linkedInLink} target={'_blank'} rel='noreferrer'><FontAwesomeIcon icon={faLinkedin} /></a>

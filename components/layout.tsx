@@ -27,15 +27,19 @@ export const Layout = ({children}: LayoutProps)
     }, []);
 
     const getNavLinks = () => {
+        if (pageData.data) {
         const pages = pageData.data as Page[];
-        setNavLinks(
+            setNavLinks(
             pages.filter(link => link.navLink !== undefined));
+        }
     }
 
     const setFullName = () => {
-        const { firstName, lastName } = meData.data as Me;
-        setFirstName(firstName);
-        setLastName(lastName);
+        if (meData.data) {
+            const { firstName, lastName } = meData.data as Me;
+            setFirstName(firstName);
+            setLastName(lastName);
+        }
     }
 
     return (

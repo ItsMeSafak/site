@@ -13,14 +13,19 @@ const Home = (): ReactElement => {
     const pageData = useSWR('/api/page-data', fetcher);
     
     const setFullName = useCallback(() => {
-        const { firstName, lastName } = meData.data as Me;
-        setFirstName(firstName);
-        setLastName(lastName);
+        if (meData.data) {
+            const { firstName, lastName } = meData.data as Me;
+            setFirstName(firstName);
+            setLastName(lastName);
+        }
     }, [meData]);
 
     useEffect(() => {
         setFullName();
-        setDescription(getPageData(pageData.data, router.pathname).description);
+        if(pageData.data) {
+            setDescription(
+                getPageData(pageData.data, router.pathname).description);
+        }
     }, [router.pathname, setFullName, pageData]);
 
     return (
