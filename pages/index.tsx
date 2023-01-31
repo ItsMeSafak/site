@@ -3,6 +3,7 @@ import { Me } from '../types/me';
 import { fetcher, getPageData } from '../helpers/utils';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
+import { Page } from '../types/page';
 
 const Home = (): ReactElement => {
     const router = useRouter()
@@ -23,6 +24,7 @@ const Home = (): ReactElement => {
     useEffect(() => {
         setFullName();
         if(pageData.data) {
+            console.log((pageData.data as Page));
             setDescription(
                 getPageData(pageData.data, router.pathname).description);
         }
