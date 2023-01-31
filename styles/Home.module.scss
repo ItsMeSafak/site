@@ -1,50 +1,5 @@
 @import './colors.scss';
 
-.container {
-    min-height: 100vh;
-    flex: 1;
-    padding: 0 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 .main {
-    padding: 4rem 0;
-    text-align: left;
-}
-
-.icons {
-    font-size: 40px;
-
-    a {
-        margin-right: 15px;
-
-        svg {
-            transition: all 0.2s ease-in-out;
-        }
-    }
-
-    a:hover {
-        svg {
-            color: $primary-color; 
-            transform: scale(1.1);
-        }
-    }
-}
-
-.title {
-    margin: 0;
-    line-height: 1.15;
-    font-size: 4rem;
-
-    span {
-        color: $primary-color;
-    }
-}
-
-.description {
-    border-top: 3px solid $primary-color;
-    padding: 1rem 0;
+    min-height: 120vh;
 }
