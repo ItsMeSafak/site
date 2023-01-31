@@ -5,12 +5,11 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 interface CardProps {
     project: Project;
-    key: number;
 }
 
-export const Card = ({project, key}: CardProps)
+export const Card = ({project}: CardProps)
     : ReactElement<CardProps> =>
-    <div key={key} className='flex flex-col text-left text-black bg-white p-5 h-48 text-ellipsis overflow-hidden shadow-3xl'>
+    <div className='flex flex-col text-left text-black bg-white p-5 h-48 text-ellipsis overflow-hidden shadow-3xl'>
         <h1 className='text-xl py-2 font-bold'>{project.title}</h1>
         <p className='flex-1 py-2'>{project.description}</p>
         {project.url &&

@@ -17,7 +17,7 @@ export const Footer = ({pageData}: FooterProps): ReactElement<FooterProps> =>{
         setLinkedInLink(meData.social.linkedin);
     }, []);
     return (
-        <footer className='flex flex-col items-center bg-black-200 p-6'>            
+        <footer className='flex flex-col items-center bg-black-200 p-6 text-white'>            
             <p className='w-fit mb-3 text-xs'>{pageData.copyright}</p>
             <div className='text-lg'>
                 <a className='mr-3' href={githubLink} target={'_blank'} rel='noreferrer'><FontAwesomeIcon icon={faGithub}/></a>
