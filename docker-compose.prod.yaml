@@ -4,16 +4,10 @@ services:
         image: ghcr.io/itsmesafak/site:latest
         restart: unless-stopped
         environment:
-            - VIRTUAL_HOST=inan.dev,www.inan.dev
-            - LETSENCRYPT_HOST=inan.dev,www.inan.dev
+            - VIRTUAL_HOST=inan.dev
+            - LETSENCRYPT_HOST=inan.dev
             - VIRTUAL_PORT=3000
         container_name: site
-        volumes: 
-            - site_data:/app/data
-          
-volumes:
-    site_data:
-        external: true
 
 networks:
     default:
