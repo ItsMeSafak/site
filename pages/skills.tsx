@@ -1,19 +1,21 @@
 import { useRouter } from 'next/router';
 import { ReactElement, useEffect, useState } from 'react';
-import { getPageData } from '../helpers/utils';
+import { fetcher, getPageData } from '../helpers/utils';
 import { Skill } from '../types/skill';
-import meData from '../data/me.json';
 import { SkillAccordion } from '../components/skill-accordion';
+import useSWR from 'swr';
 
 export const SkillsPage = (): ReactElement => {
     const router = useRouter()
     const [title, setTitle] = useState<string>('');
     const [skills, setSkills] = useState<Skill[]>([]);
+    const meData = useSWR('/api/me-data', fetcher);
+    const pageData = useSWR('/api/page-data', fetcher);
 
     useEffect(() => {
-        setTitle(getPageData(router.pathname).title);
-        setSkills(meData.skills);
-    }, [router.pathname]);
+        setTitle(getPageData(pageData.data, router.pathname).title);
+        setSkills(meData.data.skills);
+    }, [router.pathname, meData, pageData]);
 
     const renderSkills = () => {
         return skills.map((skill, index) => {

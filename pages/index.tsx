@@ -1,25 +1,27 @@
-import { ReactElement, useEffect, useState } from 'react';
-import meData from '../data/me.json';
+import { ReactElement, useCallback, useEffect, useState } from 'react';
 import { Me } from '../types/me';
-import { getPageData } from '../helpers/utils';
+import { fetcher, getPageData } from '../helpers/utils';
 import { useRouter } from 'next/router';
+import useSWR from 'swr';
 
 const Home = (): ReactElement => {
     const router = useRouter()
     const [firstName, setFirstName] = useState<string>('');
     const [lastName, setLastName] = useState<string>('');
     const [description, setDescription] = useState<string | undefined>('');
+    const meData = useSWR('/api/me-data', fetcher);
+    const pageData = useSWR('/api/page-data', fetcher);
     
-    useEffect(() => {
-        setFullName();
-        setDescription(getPageData(router.pathname).description);
-    }, [router.pathname]);
-
-    const setFullName = () => {
-        const { firstName, lastName } = meData as Me;
+    const setFullName = useCallback(() => {
+        const { firstName, lastName } = meData.data as Me;
         setFirstName(firstName);
         setLastName(lastName);
-    }
+    }, [meData]);
+
+    useEffect(() => {
+        setFullName();
+        setDescription(getPageData(pageData.data, router.pathname).description);
+    }, [router.pathname, setFullName, pageData]);
 
     return (
         <div className='flex flex-col items-center text-center lg:w-5/12'>
