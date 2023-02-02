@@ -13,9 +13,11 @@ export const SkillsPage = (): ReactElement => {
     const pageData = useSWR('/api/page-data', fetcher);
 
     useEffect(() => {
-        setTitle(getPageData(pageData.data, router.pathname).title);
-        setSkills(meData.data.skills);
-    }, [router.pathname, meData, pageData]);
+        if (pageData.data && meData.data) {
+            setTitle(getPageData(pageData.data, router.pathname).title);
+            setSkills(meData.data.skills);
+        }
+    }, [router.pathname, meData.data, pageData.data]);
 
     const renderSkills = () => {
         return skills.map((skill, index) => {

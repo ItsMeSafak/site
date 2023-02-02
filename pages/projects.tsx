@@ -13,9 +13,11 @@ export const ProjectsPage = (): ReactElement => {
     const pageData = useSWR('/api/page-data', fetcher);
 
     useEffect(() => {
-        setTitle(getPageData(pageData.data, router.pathname).title);
-        setProjects(meData.data.projects);
-    }, [router.pathname, meData, pageData]);
+        if (pageData.data && meData.data) {
+            setTitle(getPageData(pageData.data, router.pathname).title);
+            setProjects(meData.data.projects);  
+        }
+    }, [router.pathname, meData.data, pageData.data]);
 
     const renderProjects = () => {
         return projects.map((project, index) => {

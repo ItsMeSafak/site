@@ -12,9 +12,11 @@ export const AboutPage = (): ReactElement => {
 
 
     useEffect(() => {
-        setTitle(getPageData(data, router.pathname).title);
-        setIntro(getPageData(data, router.pathname).intro);
-        setDescription(getPageData(data, router.pathname).description);
+        if(data) {
+            setTitle(getPageData(data, router.pathname).title);
+            setIntro(getPageData(data, router.pathname).intro);
+            setDescription(getPageData(data, router.pathname).description);
+        }
     }, [router.pathname, data]);
 
     return (

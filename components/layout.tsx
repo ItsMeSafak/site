@@ -1,5 +1,4 @@
-import { ReactElement, useEffect, useState } from 'react';
-import Wrapper from './wrapper';
+import { ReactElement, useCallback, useEffect, useState } from 'react';
 import Header from './header';
 import Footer from './footer';
 import { Me } from '../types/me';
@@ -19,27 +18,32 @@ export const Layout = ({children}: LayoutProps)
     const meData = useSWR('/api/me-data', fetcher);
     const pageData = useSWR('/api/page-data', fetcher);
 
-    useEffect(() => {
-        console.log(meData);
-        console.log(pageData);
-        getNavLinks();
-        setFullName();
-    }, []);
-
-    const getNavLinks = () => {
+    const getNavLinks = useCallback(() => {
         if (pageData.data) {
-        const pages = pageData.data as Page[];
+            const pages = pageData.data as Page[];
             setNavLinks(
             pages.filter(link => link.navLink !== undefined));
         }
-    }
+    }, [pageData.data]);
 
-    const setFullName = () => {
+    const setFullName = useCallback(() => {
         if (meData.data) {
             const { firstName, lastName } = meData.data as Me;
             setFirstName(firstName);
             setLastName(lastName);
         }
+    }, [meData.data])
+
+    useEffect(() => {
+        getNavLinks();
+        setFullName();
+    }, [pageData.data, meData.data, getNavLinks, setFullName]);
+
+    const getFooterData = () => {
+        if (pageData.data) {
+            return pageData.data.find((page: { title: string; }) => page.title === 'Safak Inan') as Page;
+        }
+        return undefined;
     }
 
     return (
@@ -48,7 +52,7 @@ export const Layout = ({children}: LayoutProps)
                 <div className='flex flex-auto flex-col justify-center items-center p-6'>
                     {children}
                 </div>
-            <Footer/>
+            <Footer pageData={getFooterData()}/>
         </>
     );
 }

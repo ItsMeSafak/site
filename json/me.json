@@ -1,155 +1,155 @@
 {
-    "firstName": "",
-    "middleName": "",
-    "lastName": "",
-    "email": "",
-    "jobTitle": "",
-    "skills": [
-      {
-        "name": "",
-        "attributes": [
-          {
-            "name": "",
-            "iconUrl": ""
-          },
-          {
-            "name": "",
-            "iconUrl": ""
-          },
-          {
-            "name": "",
-            "iconUrl": ""
-          },
-          {
-            "name": "",
-            "iconUrl": ""
-          },
-          {
-            "name": "",
-            "iconUrl": ""
-          },
-          {
-            "name": "",
-            "iconUrl": ""
-          },
-          {
-            "name": "",
-            "iconUrl": ""
-          },
-          {
-            "name": "",
-            "iconUrl": ""
-          }
-        ]
-      },
-      {
-        "name": "",
-        "attributes": [
-          {
-            "name": "",
-            "iconUrl": ""
-          },
-          {
-            "name": "",
-            "iconUrl": ""
-          },
-          {
-            "name": "",
-            "iconUrl": ""
-          },
-          {
-            "name": "",
-            "iconUrl": ""
-          },
-          {
-            "name": "",
-            "iconUrl": ""
-          }
-        ]
-      },
-      {
-        "name": "",
-        "attributes": [
-          {
-            "name": "",
-            "iconUrl": ""
-          },
-          {
-            "name": "",
-            "iconUrl": ""
-          }
-        ]
-      },
-      {
-        "name": "",
-        "attributes": [
-          {
-            "name": "",
-            "iconUrl": ""
-          },
-          {
-            "name": "",
-            "iconUrl": ""
-          },
-          {
-            "name": "",
-            "iconUrl": ""
-          },
-          {
-            "name": "",
-            "iconUrl": ""
-          },
-          {
-            "name": "",
-            "iconUrl": ""
-          }
-        ]
-      },
-      {
-        "name": "",
-        "attributes": [
-          {
-            "name": "",
-            "iconUrl": ""
-          },
-          {
-            "name": "",
-            "iconUrl": ""
-          },
-          {
-            "name": "",
-            "iconUrl": "g"
-          },
-          {
-            "name": "",
-            "iconUrl": ""
-          },
-          {
-            "name": "",
-            "iconUrl": ""
-          }
-        ]
-      }
-    ],
-    "projects": [
-      {
-        "title": "",
-        "description": "",
-        "url": ""
-      },
-      {
-        "title": "",
-        "description": "",
-        "url": ""
-      },
-      {
-        "title": "",
-        "description": "",
-        "url": ""
-      }
-    ],
-    "social": {
-      "github": "",
-      "linkedin": ""
+  "firstName": "",
+  "middleName": "",
+  "lastName": "",
+  "email": "",
+  "jobTitle": "",
+  "skills": [
+    {
+      "name": "",
+      "attributes": [
+        {
+          "name": "",
+          "iconUrl": ""
+        },
+        {
+          "name": "",
+          "iconUrl": ""
+        },
+        {
+          "name": "",
+          "iconUrl": ""
+        },
+        {
+          "name": "",
+          "iconUrl": ""
+        },
+        {
+          "name": "",
+          "iconUrl": ""
+        },
+        {
+          "name": "",
+          "iconUrl": ""
+        },
+        {
+          "name": "",
+          "iconUrl": ""
+        },
+        {
+          "name": "",
+          "iconUrl": ""
+        }
+      ]
+    },
+    {
+      "name": "",
+      "attributes": [
+        {
+          "name": "",
+          "iconUrl": ""
+        },
+        {
+          "name": "",
+          "iconUrl": ""
+        },
+        {
+          "name": "",
+          "iconUrl": ""
+        },
+        {
+          "name": "",
+          "iconUrl": ""
+        },
+        {
+          "name": "",
+          "iconUrl": ""
+        }
+      ]
+    },
+    {
+      "name": "",
+      "attributes": [
+        {
+          "name": "",
+          "iconUrl": ""
+        },
+        {
+          "name": "",
+          "iconUrl": ""
+        }
+      ]
+    },
+    {
+      "name": "",
+      "attributes": [
+        {
+          "name": "",
+          "iconUrl": ""
+        },
+        {
+          "name": "",
+          "iconUrl": ""
+        },
+        {
+          "name": "",
+          "iconUrl": ""
+        },
+        {
+          "name": "",
+          "iconUrl": ""
+        },
+        {
+          "name": "",
+          "iconUrl": ""
+        }
+      ]
+    },
+    {
+      "name": "",
+      "attributes": [
+        {
+          "name": "",
+          "iconUrl": ""
+        },
+        {
+          "name": "",
+          "iconUrl": ""
+        },
+        {
+          "name": "",
+          "iconUrl": ""
+        },
+        {
+          "name": "",
+          "iconUrl": ""
+        },
+        {
+          "name": "",
+          "iconUrl": ""
+        }
+      ]
     }
+  ],
+  "projects": [
+    {
+      "title": "",
+      "description": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "description": "",
+      "url": ""
+    },
+    {
+      "title": "",
+      "description": "",
+      "url": ""
+    }
+  ],
+  "social": {
+    "github": "",
+    "linkedin": ""
   }
+}

@@ -3,7 +3,6 @@ import { Me } from '../types/me';
 import { fetcher, getPageData } from '../helpers/utils';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
-import { Page } from '../types/page';
 
 const Home = (): ReactElement => {
     const router = useRouter()
@@ -14,21 +13,18 @@ const Home = (): ReactElement => {
     const pageData = useSWR('/api/page-data', fetcher);
     
     const setFullName = useCallback(() => {
-        if (meData.data) {
-            const { firstName, lastName } = meData.data as Me;
-            setFirstName(firstName);
-            setLastName(lastName);
-        }
+        const { firstName, lastName } = meData.data as Me;
+        setFirstName(firstName);
+        setLastName(lastName);
     }, [meData]);
 
     useEffect(() => {
-        setFullName();
-        if(pageData.data) {
-            console.log((pageData.data as Page));
+        if(meData.data && pageData.data) {
+            setFullName();
             setDescription(
                 getPageData(pageData.data, router.pathname).description);
         }
-    }, [router.pathname, setFullName, pageData]);
+    }, [router.pathname, setFullName, pageData.data, meData.data]);
 
     return (
         <div className='flex flex-col items-center text-center lg:w-5/12'>
