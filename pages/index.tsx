@@ -1,10 +1,31 @@
-import Head from 'next/head';
-import styles from '../styles/Home.module.scss';
-import { ReactElement } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { ReactElement, useCallback, useEffect, useState } from 'react';
+import { Me } from '../types/me';
+import { fetcher, getPageData } from '../helpers/utils';
+import { useRouter } from 'next/router';
+import useSWR from 'swr';
 
 const Home = (): ReactElement => {
+    const router = useRouter()
+    const [firstName, setFirstName] = useState<string>('');
+    const [lastName, setLastName] = useState<string>('');
+    const [description, setDescription] = useState<string | undefined>('');
+    const meData = useSWR('/api/me-data', fetcher);
+    const pageData = useSWR('/api/page-data', fetcher);
+    
+    const setFullName = useCallback(() => {
+        const { firstName, lastName } = meData.data as Me;
+        setFirstName(firstName);
+        setLastName(lastName);
+    }, [meData]);
+
+    useEffect(() => {
+        if(meData.data && pageData.data) {
+            setFullName();
+            setDescription(
+                getPageData(pageData.data, router.pathname).description);
+        }
+    }, [router.pathname, setFullName, pageData.data, meData.data]);
+
     return (
         <div className={styles.container}>
             <Head>
