@@ -1,11 +1,18 @@
 @import './colors.scss';
 @import '@fortawesome/fontawesome-svg-core/styles.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 html,
 body {
     padding: 0;
     margin: 0;
     font-family: Inter;
+
+    // Change after adding 'toggle dark-mode'
+    background-color: #1a1a1a;
+    color: #fff;
 }
 
 a {
@@ -17,6 +24,27 @@ a {
     box-sizing: border-box;
 }
 
+header {
+    span {
+        position: static !important;
+    }
+}
+
+footer {
+    a {
+        svg {
+            transition: all 0.2s ease-in-out;
+        }
+
+        &:hover {
+            svg {
+                color: $primary-color;
+                transform: scale(1.2);
+            }
+        }
+    }
+}
+
 @font-face {
     font-family: 'Inter';
     src: url('./fonts/inter-regular.ttf');
@@ -26,11 +54,3 @@ a {
     font-family: 'Inter bold';
     src: url('./fonts/inter-bold.ttf');
 }
-
-@media (prefers-color-scheme: dark) {
-    .html,
-    body {
-        background-color: #1a1a1a;
-        color: #fff;
-    }
-  }

@@ -39,18 +39,16 @@ const Home = (): ReactElement => {
                 <link rel='icon' href='/favicon.ico' />
             </Head>
 
-            <main className={styles.main}>
-                <h1 className={styles.title}>
-                    <span>Hi</span> there!
-                </h1>
-                <p className={styles.description}>
-                    Unfortunately the website is still in maintenence. 
-                    However, feel free to contact me on my socials!</p>
-                <div className={styles.icons}>
-                    <a href='https://github.com/ItsMeSafak' target={'_blank'} rel='noreferrer'><FontAwesomeIcon icon={faGithub}/></a>
-                    <a href='https://www.linkedin.com/in/safak-inan/' target={'_blank'} rel='noreferrer'><FontAwesomeIcon icon={faLinkedin} /></a>
-                </div>
-            </main>
+    const setFullName = () => {
+        const { firstName, lastName } = meData as Me;
+        setFirstName(firstName);
+        setLastName(lastName);
+    }
+
+    return (
+        <div className='flex flex-col items-center text-center lg:w-5/12'>
+            <h1 className='text-5xl lg:text-7xl w-10/12 py-2 border-b-4 border-blue font-bold'>{firstName} {lastName}</h1>
+            <p className='py-2 w-8/12'>{description}</p>
         </div>
     );
 }
