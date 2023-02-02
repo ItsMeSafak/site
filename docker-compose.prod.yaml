@@ -8,9 +8,9 @@ services:
             - LETSENCRYPT_HOST=inan.dev,www.inan.dev
             - VIRTUAL_PORT=3000
         container_name: site
-        volumes: 
-            - site_data:/app/data
-          
+        volumes:
+            - site_data:/app/json
+
 volumes:
     site_data:
         external: true
