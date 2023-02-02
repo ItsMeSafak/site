@@ -2,8 +2,8 @@ import { useRouter } from 'next/router';
 import { ReactElement, useEffect, useState } from 'react';
 import { fetcher, getPageData } from '../helpers/utils';
 import { Project } from '../types/project';
-import Card from '../components/card';
 import useSWR from 'swr';
+import Card from '../components/card';
 
 export const ProjectsPage = (): ReactElement => {
     const router = useRouter()
