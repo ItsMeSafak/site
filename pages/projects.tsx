@@ -1,23 +1,16 @@
-import { useRouter } from 'next/router';
 import { ReactElement, useEffect, useState } from 'react';
-import { fetcher, getPageData } from '../helpers/utils';
 import { Project } from '../types/project';
-import useSWR from 'swr';
 import Card from '../components/card';
+import PageProps from '../types/page-props';
 
-export const ProjectsPage = (): ReactElement => {
-    const router = useRouter()
+export const ProjectsPage = ({meData, pageData}: PageProps): ReactElement => {
     const [title, setTitle] = useState<string>('');
     const [projects, setProjects] = useState<Project[]>([]);
-    const meData = useSWR('/api/me-data', fetcher);
-    const pageData = useSWR('/api/page-data', fetcher);
 
     useEffect(() => {
-        if (pageData.data && meData.data) {
-            setTitle(getPageData(pageData.data, router.pathname).title);
-            setProjects(meData.data.projects);  
-        }
-    }, [router.pathname, meData.data, pageData.data]);
+        setTitle(pageData.title);
+        setProjects(meData.projects);  
+    }, [meData, pageData]);
 
     const renderProjects = () => {
         return projects.map((project, index) => {
