@@ -7,6 +7,9 @@ module.exports = {
     './pages/**/*.{html,js,ts,jsx,tsx,css,scss,sass,less,styl}',
     './components/**/*.{html,js,ts,jsx,tsx,css,scss,sass,less,styl}',],
   theme: {
+    fontFamily: {
+      'body': ['Inter']
+    },
     extend: {
       // screens: {
       //   'dark': {'raw': '(prefers-color-scheme: dark)'}
