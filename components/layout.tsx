@@ -8,7 +8,7 @@ import { ME_DATA_URL, PAGE_DATA_URL } from '../helpers/constants';
 import useSWR from 'swr';
 import React from 'react';
 import { useRouter } from 'next/router';
-import { animate, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 interface LayoutProps {
     children: ReactElement;
