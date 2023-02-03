@@ -1,17 +1,23 @@
 import { ReactElement, useEffect, useState } from 'react';
-import PageProps from '../types/page-props';
+import { fetcher, getPageData } from '../helpers/utils';
+import { useRouter } from 'next/router';
+import useSWR from 'swr';
 
-export const AboutPage = ({pageData}: PageProps): ReactElement => {
+export const AboutPage = (): ReactElement => {
+    const router = useRouter()
     const [title, setTitle] = useState<string>('');
     const [intro, setIntro] = useState<string | undefined>('');
     const [description, setDescription] = useState<string | undefined>('');
+    const { data } = useSWR('/api/page-data', fetcher);
 
 
     useEffect(() => {
-        setTitle(pageData.title);
-        setIntro(pageData.intro);
-        setDescription(pageData.description);
-    }, [pageData]);
+        if(data) {
+            setTitle(getPageData(data, router.pathname).title);
+            setIntro(getPageData(data, router.pathname).intro);
+            setDescription(getPageData(data, router.pathname).description);
+        }
+    }, [router.pathname, data]);
 
     return (
         <div className='flex flex-col bg-blue p-10 lg:w-6/12'>
