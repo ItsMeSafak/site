@@ -8,6 +8,7 @@ import { ME_DATA_URL, PAGE_DATA_URL } from '../helpers/constants';
 import useSWR from 'swr';
 import React from 'react';
 import { useRouter } from 'next/router';
+import { animate, motion } from 'framer-motion';
 
 interface LayoutProps {
     children: ReactElement;
@@ -60,10 +61,15 @@ export const Layout = ({children}: LayoutProps):
 
     return (
         <div className='flex flex-col min-h-screen'>
-            <Header pages={navLinks} firstName={firstName} lastName={lastName}/>
-                <div className='flex flex-auto flex-col justify-center items-center p-6'>
-                    {childrenWithProps}
-                </div>
+            <Header pages={navLinks} 
+                firstName={firstName} lastName={lastName}/>
+            <motion.div key={router.route}
+                        transition={{ duration: .3 }}
+                        initial={{ opacity: 0, transform: 'translateY(100px)' }}
+                        animate={{ opacity: 1, transform: 'translateY(0px)' }}
+                        className='flex flex-auto flex-col justify-center items-center p-6 z-10'>
+                {childrenWithProps}
+            </motion.div>
             <Footer pageData={footerData} meData={meData.data as Me}/>
         </div>
     );
