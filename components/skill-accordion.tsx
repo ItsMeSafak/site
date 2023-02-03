@@ -20,7 +20,6 @@ export const SkillAccordion = ({skill}: AccordionProps): ReactElement => {
             return <div className='w-full flex justify-between py-2' key={attribute.name}><span>{attribute.name}</span><Image src={attribute.iconUrl} width={25} height={25} alt='logo' /></div>
         });
     }
-
     
     return (
         <div id={skill.name} className='flex flex-col text-left bg-white text-black p-5 text-ellipsis overflow-hidden shadow-3xl border-black-200 h-fit'>

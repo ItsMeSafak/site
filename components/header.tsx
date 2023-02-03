@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Page } from '../types/page';
 import { IconButton, MobileNav, Navbar } from '@material-tailwind/react';
 import { Hamburger } from './hamburger';
+import { useRouter } from 'next/router';
 
 interface HeaderProps {
     pages: Page[];
@@ -13,6 +14,7 @@ interface HeaderProps {
 
 export const Header = ({pages, firstName, lastName}: HeaderProps)
 : ReactElement<HeaderProps> => {
+    const router = useRouter();
     const [openNav, setOpenNav] = useState(false);
 
     useEffect(() => {
@@ -27,7 +29,8 @@ export const Header = ({pages, firstName, lastName}: HeaderProps)
             return (
                 <li key={page.title}><Link onClick={() => {
                     if(window.innerWidth < 960) setOpenNav(!openNav)
-                }} className='block lg:inline-block p-1 border-b-2 border-blue border-opacity-0 hover:border-opacity-100' href={page.path}>{page.navLink}</Link></li>
+                }} className={`${router.pathname == page.path ? 'before:w-full' : 'before:w-0'} relative block lg:inline-block p-1 before:absolute before:left-0 before:bottom-0 before:h-1/2 before:content-[""] before:bg-blue hover:before:w-full before:transition-all before:ease-in-out before:duration-300 before:z-[-1] z-10`} 
+                    href={page.path}>{page.navLink}</Link></li>
             );
         });
     }
