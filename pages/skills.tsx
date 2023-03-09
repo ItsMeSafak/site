@@ -23,7 +23,7 @@ export const SkillsPage = ({meData, pageData}: PageProps): ReactElement => {
     return (
         <div className='flex items-center flex-col w-full lg:p-10 lg:w-6/12'>
             <h1 className='text-4xl lg:text-6xl py-2 px-10 font-bold bg-blue mb-10'>{title}</h1>
-            <div className='grid grid-auto-columns gap-5'>
+            <div className='grid grid-cols-1 lg:grid-cols-3 gap-5'>
                 {renderSkills()}
             </div>
         </div>
